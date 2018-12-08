@@ -17,9 +17,14 @@ namespace WebApplication1.Models
             get;
             set;
         }
+        public string FistName
+        {
+            get;
+            set;
+        }
         public override string ToString()
         {
-            return this.CustomerName + "-" + this.Address;
+            return this.CustomerName + "-" + this.FistName;
         }
     }
 }

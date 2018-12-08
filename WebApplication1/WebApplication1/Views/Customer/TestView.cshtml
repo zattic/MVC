@@ -1,0 +1,29 @@
+﻿@using WebApplication1.Models;
+@model Customer
+@{
+    Layout = null;
+    Customer emp = ViewBag.Customer;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>TestView</title>
+</head>
+<body>
+    <div> 
+        <h1>@Model,@((string)ViewData["greeting"])!</h1>
+        <div>
+
+            <b>顾客信息</b><br />
+            姓名;@Model.FistName<br />
+            地址;@Model.Address
+
+
+
+        </div>
+    </div>
+</body>
+</html>

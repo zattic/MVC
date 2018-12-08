@@ -38,12 +38,12 @@ namespace WebApplication1.Controllers
                 greeting = "下午好"; 
             }
             ViewData["greeting"] = greeting;
-
             Employee emp = new Employee();
             emp.Name = "李四";
             emp.Salary = 20002;
-            ViewData["Employee"] = emp;
-            return View("MyView");
+            // ViewData["Employee"] = emp;
+            ViewBag.Employee = emp;
+            return View("MyView",emp);
         }
     }
 }
