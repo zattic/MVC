@@ -1,0 +1,36 @@
+﻿@using WebApplication1.Models;
+@model Employee
+@{
+    Layout = null;
+    Employee emp = ViewBag.Employee;
+    Customer Cust = ViewBag.Customer;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DataView</title>
+</head>
+<body>
+    <div>
+        <hr />
+        <h1>你好！@Cust.CustomerName</h1>
+        <hr />
+        <h2>球员信息</h2>
+        <p>姓名:@Cust.FistName</p>
+        <p>出生地:@Cust.Address</p>
+
+        <hr />
+
+        <h1>@emp.Name</h1>
+
+        <hr />
+        <h2>球队信息</h2>
+        <p>赛事:@emp.Team</p>
+        <p>建队时间:@emp.Salary</p>
+    </div>
+
+</body>
+</html>

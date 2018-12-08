@@ -9,6 +9,8 @@ namespace WebApplication1.Models
     {
         public string Name { get; set; }
 
+        public string Team { get; set; }
+
         public int Salary { get; set; }
     }
 }
