@@ -14,14 +14,26 @@ namespace WebApplication1.Controllers
         public ActionResult Index()
         {
             EmployeeListViewModels empListModel = new EmployeeListViewModels();
+            //获取将处理过的数据列表
+            empListModel.EmployeeViewList = getEmpVmList();
+            //获取问候语
+            empListModel.Greeting = getGreeting();
+            //获取用户名
+            empListModel.UserName = getUserName();
+            //将数据送往视图
+            return View(empListModel);
+        }
+        [NonAction]
+        List<EmployeeViewModels> getEmpVmList()
+        {
             //实例化员工信息
             EmployeeBusinessLayer empBL = new EmployeeBusinessLayer();
-           //员工原始数据列表，获取来自业务层类的数据
+            //员工原始数据列表，获取来自业务层类的数据
             var listEmp = empBL.GetEmployeeList();
             //员工原始数据加工后的视图数据列表，当前状态是空的
             var listEmpVm = new List<EmployeeViewModels>();
             //通过循环遍历员工原始数据数组，将数据一个一个的转换，并加入listEmpVm
-            foreach(var item in listEmp)
+            foreach (var item in listEmp)
             {
                 EmployeeViewModels empVmObj = new EmployeeViewModels();
                 empVmObj.EmployeeName = item.Name;
@@ -36,14 +48,12 @@ namespace WebApplication1.Controllers
                 }
                 listEmpVm.Add(empVmObj);
             }
-            //将处理过的数据列表送给强势图类型对象
+            return listEmpVm;
+        }
+        [NonAction]
 
-            empListModel.EmployeeViewList = listEmpVm;
-
-
-
-
-
+        string getGreeting()
+        {
             string greeting;
             DateTime dt = DateTime.Now;
             int hour = dt.Hour;
@@ -56,10 +66,27 @@ namespace WebApplication1.Controllers
             {
                 greeting = "下午好";
             }
+            return greeting;
+        }
+        [NonAction]
 
-            empListModel.Greeting = greeting;
-            empListModel.UserName = "Admin";
-            return View(empListModel);
+        string getUserName()
+        {
+            return "Admin";
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
