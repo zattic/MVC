@@ -18,6 +18,12 @@
         {
         }
 
+        //为数据库中对应实体集合设计不一样的表格名称
+protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Employee>().ToTable("TblEmployee");
+            base.OnModelCreating(modelBuilder);
+        }
         //为您要在模型中包含的每种实体类型都添加 DbSet。有关配置和使用 Code First  模型
         //的详细信息，请参阅 http://go.microsoft.com/fwlink/?LinkId=390109。
 

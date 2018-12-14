@@ -38,7 +38,7 @@ namespace WebApplication1.Controllers
             ViewData["Employee"] = emp;
 
             emp.Name = "洛杉矶湖人队（Los Angeles Lakers）";
-            emp.Team = "NBA";
+            //emp.Team = "NBA";
             emp.Salary = 1947;
             ct.CustomerName = "勒布朗";
             ct.FistName = "詹姆斯";

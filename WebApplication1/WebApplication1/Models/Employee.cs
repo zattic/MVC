@@ -9,9 +9,9 @@ namespace WebApplication1.Models
     public class Employee
     {
         [Key]
-        public string Name { get; set; }
+        public int Employeeld { get; set; }
 
-        public string Team { get; set; }
+        public string Name{ get; set; }
 
         public int Salary { get; set; }
     }

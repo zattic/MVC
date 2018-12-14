@@ -50,6 +50,10 @@ namespace WebApplication1.Controllers
             }
             return listEmpVm;
         }
+        public ActionResult AddNew()
+        {
+            return View("CreateEmployee");
+        }
         [NonAction]
 
         string getGreeting()
