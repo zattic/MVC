@@ -6,17 +6,22 @@ using System.Threading.Tasks;
 
 namespace ConsoleApplication1
 {
-   public class Student
+   public class Post
     {
-        public string Name
+        public int PostId
         {
             get;
             set;
         }
-        public int Num
+        public int Title
         {
             get;
             set;
         }
+        public string Content
+        {
+            get;
+            set;
+        }  
     }
 }
