@@ -4,24 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApplication1
+namespace ConsoleApplication1.Models
 {
    public class Post
     {
-        public int PostId
-        {
-            get;
-            set;
-        }
-        public int Title
-        {
-            get;
-            set;
-        }
-        public string Content
-        {
-            get;
-            set;
-        }  
+        public int PostId { get; set; }
+        public string Title { get; set; }
+        public string Content { get; set; }
+        public int BlogId { get; set; }
+        public virtual Blog Blog { get; set; }
+
     }
 }
