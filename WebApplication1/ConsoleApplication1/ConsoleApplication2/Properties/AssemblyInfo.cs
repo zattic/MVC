@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // 有关程序集的一般信息由以下
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("CodeFirstNewDatabaseSample")]
+[assembly: AssemblyTitle("ConsoleApplication2")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Microsoft")]
-[assembly: AssemblyProduct("CodeFirstNewDatabaseSample")]
+[assembly: AssemblyProduct("ConsoleApplication2")]
 [assembly: AssemblyCopyright("Copyright © Microsoft 2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // 如果此项目向 COM 公开，则下列 GUID 用于类型库的 ID
-[assembly: Guid("7425074c-4508-4e36-be1e-fe143e9357b2")]
+[assembly: Guid("b0e61d14-0dce-4e22-897a-3481ef822a48")]
 
 // 程序集的版本信息由下列四个值组成: 
 //
