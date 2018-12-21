@@ -12,17 +12,71 @@ namespace ConsoleApplication1
     {
         static void Main(string[] args)
         {
+            ALL();
             //CreatNewPosts();
             //UpdatePosts();
             //DeletePosts();
-            AddPost();
+            //AddPost();
             //QueryBlog();
             //createBlog();
-
             Console.WriteLine("按任意键退出");
             Console.ReadKey();
+        }
+        static void ALL()
+        {
+            //显示所有博客
+            QueryBlog();
+            Console.WriteLine(" --1-新增博客   --2-更改博客  --3-删除博客  --4-操作帖子  --5-退出");
+            Console.WriteLine("请输入操作指令");
+            int i = int.Parse(Console.ReadLine());
+            if (i == 5)
+            {
+                return;
+            }
+
+            else if (i == 1)
+            {
+                createBlog();
+                QueryBlog();
+                Console.Clear();
+                ALL();
+            }
+            else if (i == 2)
+            {
+                Update();
+                QueryBlog();
+                Console.Clear();
+                ALL();
+            }
+            else if (i == 3)
+            {
+                Delete();
+                QueryBlog();
+                Console.Clear();
+                ALL();
+            }
+            else if (i == 4)
+            {
+                int blogid = GetBlogId();
+                //显示指定博客的帖子列表
+                DisplayPosts(blogid);
+            }
+            else
+            {
+                Console.WriteLine("无效字符");
+            }
 
         }
+        static int GetBlogId()
+        {
+            //提示用户输入博客id
+            Console.WriteLine("请输入要操作的博客id");
+            //获取用户输入，并存储到变量id
+            int id = int.Parse(Console.ReadLine());
+            //返回id
+            return id;
+        }
+        //新增博客
         static void createBlog()
         {
             Console.WriteLine("请输入一个博客名称");         
@@ -33,6 +87,7 @@ namespace ConsoleApplication1
             bbl.Add(blog);
 
         }
+        //查询全部博客
         static void QueryBlog()
         {
               
@@ -43,7 +98,7 @@ namespace ConsoleApplication1
                 Console.WriteLine(item.BlogId + "" + item.Name);
             }
         }
-
+        //修改博客
         static void Update()
         {
             Console.WriteLine("请输入id");
@@ -55,7 +110,7 @@ namespace ConsoleApplication1
             blog.Name = name;
             bbl.Update(blog);
         }
-
+        //删除博客
         static void Delete()
         {
             BlogBusinessLayerss bbl = new BlogBusinessLayerss();
@@ -132,8 +187,8 @@ namespace ConsoleApplication1
         //}
 
 
-
         //修改帖子
+       
         static void UpdatePosts()
         {
             QueryBlog();
