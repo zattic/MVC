@@ -100,7 +100,16 @@ namespace ConsoleApplication1.BlogBusinessLayer
                 db.SaveChanges();
             }
         }
+        public List<Blog> ALLQuery(string i)
+        {
+            using (var db = new BloggingContext())
+            {
+                // 查询所有包含字符串name的博客
+                var query = db.Blogs.Where(num => num.Name.Contains(i));                 
+                return query.ToList();
+            }
+        }
 
-        
+
     }
 }

@@ -12,7 +12,8 @@ namespace ConsoleApplication1
     {
         static void Main(string[] args)
         {
-            NewMethod();
+            //ALLQuery();
+             NewMethod();
             //CreatNewPosts();
             //UpdatePosts();
             //DeletePosts();
@@ -22,12 +23,13 @@ namespace ConsoleApplication1
             Console.WriteLine("按任意键退出");
             Console.ReadKey();
         }
-        private static void NewMethod()
+
+            private static void NewMethod()
         {
             //显示所有博客
             Console.WriteLine("所有博客：");
             QueryBlog();
-            Console.WriteLine("-1-退出 -2-新增博客 -3-更改博客 -4-删除博客 -5-操作帖子");
+            Console.WriteLine("-1-退出  -2-新增博客 -3-更改博客 -4-删除博客 -5-操作帖子 -6-查询博客");
             Console.WriteLine("请输入操作指令");
             int i = int.Parse(Console.ReadLine());
             if (i == 1)
@@ -35,12 +37,12 @@ namespace ConsoleApplication1
                 Environment.Exit(0);
                 return;
             }
-
             else if (i == 2)
             {
                 createBlog();
                 QueryBlog();
-                Console.Clear(); NewMethod();
+                Console.Clear();
+                NewMethod();
 
             }
             else if (i == 3)
@@ -98,21 +100,42 @@ namespace ConsoleApplication1
                     Console.WriteLine("删除成功");
                 }
             }
+            else if (i == 6)
+            {
+                ALLQuery();
+                QueryBlog();
+                Console.Clear();
+                NewMethod();
+
+            }
             else
             {
                 Console.WriteLine("无效字符");
                 return;
             }
         }
-       
-        static int GeBlogId()
+          
+            static int GeBlogId()
         {
             Console.WriteLine("请输入ID：");
             int id = int.Parse(Console.ReadLine());
             return id;
         }
-        //新增博客
-        static void createBlog()
+            //模糊查找
+            static void ALLQuery()
+        {
+            Console.WriteLine("输入博客名称");
+            string i = Console.ReadLine();
+            BlogBusinessLayerss bbl = new BlogBusinessLayerss();
+            List<Blog> blog = bbl.ALLQuery(i);
+            foreach (var item in blog)
+            {
+                Console.WriteLine(item.Name);
+            }
+            Console.ReadKey();
+        }
+            //新增博客
+            static void createBlog()
         {
                 Console.WriteLine("请输入一个博客名称");
                 string name = Console.ReadLine();
@@ -154,7 +177,6 @@ namespace ConsoleApplication1
                 Blog blog = bbl.Query(id);
                 bbl.Delete(blog);
             }
-
             static void AddPost()
         {
                 //显示博客列表
@@ -185,7 +207,7 @@ namespace ConsoleApplication1
                 }
             }
             //新增帖子
-        static void CreatNewPosts(int blogid)
+            static void CreatNewPosts(int blogid)
         {
             Console.WriteLine("请输入一个博客ID");
             int id = int.Parse(Console.ReadLine());
@@ -202,25 +224,8 @@ namespace ConsoleApplication1
             BlogBusinessLayerss bbl = new BlogBusinessLayerss();
             bbl.pAdd(post);
         }
-        //static void PostByID(int blogID)
-        //{
-        //    Console.WriteLine("请输入一个帖子名称");
-        //    string title = Console.ReadLine();
-        //    Console.WriteLine("请输入一个帖子内容");
-        //    string content = Console.ReadLine();
-
-        //    Post post = new Post();
-        //    post.BlogId = blogID;
-        //    post.Title = title;
-        //    post.Content = content;
-
-        //    BlogBusinessLayerss bbl = new BlogBusinessLayerss();
-        //    bbl.pAdd(post);
-        //}
-
-
-        //修改帖子
-        static void UpdatePosts()
+            //修改帖子
+            static void UpdatePosts()
         {
                 QueryBlog();
 
