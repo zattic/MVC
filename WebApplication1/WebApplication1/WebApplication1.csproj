@@ -168,8 +168,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\EmloyeeBusinessLayer.cs" />
     <Compile Include="Models\Employee.cs" />
-    <Compile Include="Scripts\EmployeeBusinessLayer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\EmployeeListViewModels.cs" />
     <Compile Include="ViewModels\EmployeeViewModels.cs" />

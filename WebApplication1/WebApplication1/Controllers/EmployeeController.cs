@@ -36,6 +36,7 @@ namespace WebApplication1.Controllers
             foreach (var item in listEmp)
             {
                 EmployeeViewModels empVmObj = new EmployeeViewModels();
+                empVmObj.EmloyeeId = item.Employeeld;
                 empVmObj.EmployeeName = item.Name;
                 empVmObj.EmployeeSalary = item.Salary.ToString("C");
                 if (item.Salary > 10000)
@@ -54,10 +55,21 @@ namespace WebApplication1.Controllers
         {
             return View("CreateEmployee");
         }
+        //增加
         public ActionResult Save(Employee emp)
         {
-            //return (emp.Name + "------" + emp.Salary.ToString());
+            EmployeeBusinessLayer empBL = new EmployeeBusinessLayer();
+            empBL.AddEmployee(emp);
+            // return (emp.Name + "-----" + emp.Salary.ToString());
             return new RedirectResult("index");
+        }
+        //删除
+        public ActionResult Delete(int id)
+        {
+            EmployeeBusinessLayer ebl = new EmployeeBusinessLayer();
+            ebl.Delete(id);
+
+            return RedirectToAction("index");
         }
         [NonAction]
         string getGreeting()

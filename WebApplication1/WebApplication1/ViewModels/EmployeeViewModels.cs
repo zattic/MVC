@@ -7,6 +7,7 @@ namespace WebApplication1.ViewModels
 {
     public class EmployeeViewModels
     {
+        public int EmloyeeId { get; set; }
         public string EmployeeName { get; set; }
 
         public string EmployeeSalary { get; set; }
