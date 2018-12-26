@@ -54,8 +54,12 @@ namespace WebApplication1.Controllers
         {
             return View("CreateEmployee");
         }
+        public ActionResult Save(Employee emp)
+        {
+            //return (emp.Name + "------" + emp.Salary.ToString());
+            return new RedirectResult("index");
+        }
         [NonAction]
-
         string getGreeting()
         {
             string greeting;
@@ -73,7 +77,6 @@ namespace WebApplication1.Controllers
             return greeting;
         }
         [NonAction]
-
         string getUserName()
         {
             return "Admin";

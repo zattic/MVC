@@ -13,12 +13,12 @@
 </head>
 <body>
     <div> 
-        <from action="/employee/SaveEmployee" method="post">
-            姓名: <input type="text" id="TxtLName" name="Name" value="" /><br />
-            工资: <input type="text" id="TxtLSalary" name="Salary" value="" /><br />
-            <input type="submit" name="BtnSave" value="保存">
-            <input type="button" name="BtnReset" value="重置">
-        </from>
+        <form action="/employee/save" method="post">
+            姓名：<input type="text" name="Name"><br/>
+            工资：<input type="text" name="Salary"><br/>
+            <input type="submit" value="保存">
+            <input type="reset" value="重置">
+        </form>
     </div>
 </body>
 </html>
