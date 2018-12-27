@@ -71,6 +71,20 @@ namespace WebApplication1.Controllers
 
             return RedirectToAction("index");
         }
+        //修改
+        public ActionResult Edit(int id)
+        {
+          EmployeeBusinessLayer ebl = new EmployeeBusinessLayer();
+          Employee emp= ebl.Query(id);          
+            return View(emp);
+        }
+        [HttpPost]
+        public ActionResult Edit(Employee emp)
+        {
+            EmployeeBusinessLayer ebl = new EmployeeBusinessLayer();
+            ebl.UpdateEmployee(emp);
+            return RedirectToAction("index");
+        }
         [NonAction]
         string getGreeting()
         {
