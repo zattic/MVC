@@ -12,8 +12,16 @@
     <title>Index</title>
 </head>
 <body>
+
     <h2>@Model.UserName,@Model.Greeting</h2>
     <p><a href="/Employee/AddNew">新增</a></p>
+
+    <form action=/Employee/Search/" method="post">
+        <input type="text" name="searchString" value="">
+        <input type="submit" value="查询">
+    </form>
+
+    
     <div> 
         <ul>
         @foreach (var item in Model.EmployeeViewList)

@@ -47,6 +47,7 @@ namespace WebApplication1.Models
                 db.SaveChanges();
             }
         }
+        //查询
         public Employee Query(int id)
         {
             using (var db = new SalesERPDAL())
@@ -55,6 +56,14 @@ namespace WebApplication1.Models
                 return emp;
             }
         }
+        //查询全部
+        public IEnumerable<Employee> Search(string searchString)
+        {
+            using (var db = new SalesERPDAL())
+            {
+                return db.Employee.Where(e => e.Name.Contains(searchString)).ToList();
 
+            }
+        }
     }
 }

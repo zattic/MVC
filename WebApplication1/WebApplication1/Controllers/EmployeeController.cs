@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using WebApplication1.ViewModels;
 using WebApplication1.Models;
+using WebApplication1.DataAccessLayer;
 
 namespace WebApplication1.Controllers
 {
@@ -45,7 +46,7 @@ namespace WebApplication1.Controllers
                 }
                 else
                 {
-                    empVmObj.EmployeeGrade = "20";
+                    empVmObj.EmployeeGrade = "屌丝";
                 }
                 listEmpVm.Add(empVmObj);
             }
@@ -78,6 +79,14 @@ namespace WebApplication1.Controllers
           Employee emp= ebl.Query(id);          
             return View(emp);
         }
+        //查询
+        public ActionResult Search(string searchString)
+        {
+            EmployeeBusinessLayer ebl = new EmployeeBusinessLayer();
+            var queryResult = ebl.Search(searchString);
+            return View(queryResult);
+        }
+
         [HttpPost]
         public ActionResult Edit(Employee emp)
         {
